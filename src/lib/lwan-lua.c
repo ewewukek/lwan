@@ -92,6 +92,32 @@ LWAN_LUA_METHOD(query_param)
     return request_param_getter(L, lwan_request_get_query_param);
 }
 
+LWAN_LUA_METHOD(content_type)
+{
+    struct lwan_request *request = userdata_as_request(L);
+    struct lwan_value *content_type = request->header.content_type;
+
+    if (content_type && content_type->len)
+        lua_pushstring(L, content_type->value);
+    else
+        lua_pushnil(L);
+
+    return 1;
+}
+
+LWAN_LUA_METHOD(body)
+{
+    struct lwan_request *request = userdata_as_request(L);
+    struct lwan_value *body = request->header.body;
+
+    if (body && body->len)
+        lua_pushstring(L, body->value);
+    else
+        lua_pushnil(L);
+
+    return 1;
+}
+
 LWAN_LUA_METHOD(post_param)
 {
     return request_param_getter(L, lwan_request_get_post_param);
