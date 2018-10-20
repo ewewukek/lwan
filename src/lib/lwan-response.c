@@ -171,6 +171,9 @@ void lwan_response(struct lwan_request *request, enum lwan_http_status status)
         return;
     }
 
+    if (UNLIKELY(response->status))
+        status = response->status;
+
     log_request(request, status);
 
     size_t header_len =

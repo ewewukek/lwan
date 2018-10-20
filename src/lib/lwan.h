@@ -270,6 +270,7 @@ struct lwan_request;
 struct lwan_response {
     struct lwan_strbuf *buffer;
     const char *mime_type;
+    enum lwan_http_status status;
 
     union {
         struct {
