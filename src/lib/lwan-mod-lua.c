@@ -301,7 +301,7 @@ static const struct lwan_module module = {
     .destroy = lua_destroy,
     .handle_request = lua_handle_request,
     .flags = HANDLER_PARSE_QUERY_STRING | HANDLER_REMOVE_LEADING_SLASH |
-             HANDLER_PARSE_COOKIES
+             HANDLER_PARSE_COOKIES | HANDLER_PARSE_POST_DATA
 };
 
 LWAN_REGISTER_MODULE(lua, &module);
