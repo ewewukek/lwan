@@ -159,8 +159,6 @@ void lwan_response(struct lwan_request *request, enum lwan_http_status status)
         return;
     }
 
-    log_request(request, status);
-
     if (request->flags & RESPONSE_STREAM && response->stream.callback) {
         status = response->stream.callback(request, response->stream.data);
 
@@ -169,8 +167,11 @@ void lwan_response(struct lwan_request *request, enum lwan_http_status status)
             lwan_default_response(request, status);
         }
 
+        log_request(request, status);
         return;
     }
+
+    log_request(request, status);
 
     size_t header_len =
         lwan_prepare_response_header(request, status, headers, sizeof(headers));
