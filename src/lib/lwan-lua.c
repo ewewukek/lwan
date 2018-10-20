@@ -143,6 +143,15 @@ static bool append_key_value(lua_State *L, struct coro *coro,
     return kv->value != NULL;
 }
 
+LWAN_LUA_METHOD(set_status)
+{
+    struct lwan_request *request = userdata_as_request(L);
+
+    request->response.status = lua_tonumber(L, 2);
+
+    return 0;
+}
+
 LWAN_LUA_METHOD(set_headers)
 {
     const int table_index = 2;
