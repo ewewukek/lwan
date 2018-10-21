@@ -116,6 +116,7 @@ static const struct {
     const char *description;
 } status_table[] = {
     STATUS(200, "OK", "Success!"),
+    STATUS(204, "No Content", "Success!"),
     STATUS(206, "Partial content", "Delivering part of requested resource."),
     STATUS(301, "Moved permanently", "This content has moved to another place."),
     STATUS(304, "Not modified", "The content has not changed since previous request."),
