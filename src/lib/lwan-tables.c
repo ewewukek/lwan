@@ -119,6 +119,7 @@ static const struct {
     STATUS(204, "No Content", "Success!"),
     STATUS(206, "Partial content", "Delivering part of requested resource."),
     STATUS(301, "Moved permanently", "This content has moved to another place."),
+    STATUS(302, "Found", "The requested resource resides temporarily under a different URI."),
     STATUS(304, "Not modified", "The content has not changed since previous request."),
     STATUS(307, "Temporary Redirect", "This content can be temporarily found at a different location."),
     STATUS(400, "Bad request", "The client has issued a bad request."),
